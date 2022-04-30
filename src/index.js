@@ -8,3 +8,36 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+
+const morning = "Good Morning";
+const morningStyle = {
+  color: "red"
+};
+const afternoon = "Good Afternoon";
+const afternoonStyle = {
+  color: "green"
+};
+const evening = "Good Evening";
+const eveningStyle = {
+  color: "blue"
+};
+
+const date = new Date();
+
+if (date.getHours() >= 0 && date.getHours() <= 12) {
+  timeOfDay = morning;
+  timeOfDayStyle = morningStyle;
+} else if (date.getHours() > 12 && date.getHours() < 18) {
+  timeOfDay = afternoon;
+  timeOfDayStyle = afternoonStyle;
+} else if (date.getHours() >= 18 && date.getHours() < 24) {
+  timeOfDay = evening;
+  timeOfDayStyle = eveningStyle;
+}
+
+ReactDOM.render(
+  <h1 className="heading" style={timeOfDayStyle}>
+    {timeOfDay}
+  </h1>,
+  document.getElementById("root")
+);
